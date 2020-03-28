@@ -1,13 +1,14 @@
 //import express
 
 const express=require('express')
+const routes = require("./routes")
 
 //SetUp Express
 
 const app = express()
 
-app.use('/',(req,res)=>{
-    res.send('Hello world in NodeJS')
-})
+//load routes
+
+app.use('/',routes())
 
 app.listen(3000)
