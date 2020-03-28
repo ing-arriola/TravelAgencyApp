@@ -4,11 +4,11 @@ const router = express.Router()
 
 module.exports = function(){
     router.get('/',(req,res)=>{
-        res.send('Hello world in NodeJS')
+        res.render('index')
     })
     
     router.get('/company',(req,res)=>{
-        res.send('Our company')
+        res.render('company')
     })
 
     return router
