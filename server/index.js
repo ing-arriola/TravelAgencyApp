@@ -15,6 +15,10 @@ app.set('view engine','pug')
 
 app.set('views',paths.join(__dirname,'./views'))
 
+//Load a static directory
+
+app.use(express.static('public'))
+
 //load routes
 
 app.use('/',routes())
