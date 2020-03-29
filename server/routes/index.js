@@ -8,7 +8,9 @@ module.exports = function(){
     })
     
     router.get('/company',(req,res)=>{
-        res.render('company')
+        res.render('company',{
+            page:"About us"
+        })
     })
 
     return router

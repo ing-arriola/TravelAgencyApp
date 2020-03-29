@@ -3,6 +3,8 @@
 const express=require('express')
 const routes = require("./routes")
 const paths=require('path')
+const configs=require('./config')
+
 //SetUp Express
 
 const app = express()
@@ -18,6 +20,13 @@ app.set('views',paths.join(__dirname,'./views'))
 //Load a static directory
 
 app.use(express.static('public'))
+
+//Check if the enviroment is dev or prod
+
+const config=configs[app.get('env')]
+
+//var for website
+app.locals.title=config.sitename
 
 //Show actual year
 app.use((req,res,next)=>{
