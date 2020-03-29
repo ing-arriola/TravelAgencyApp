@@ -19,6 +19,15 @@ app.set('views',paths.join(__dirname,'./views'))
 
 app.use(express.static('public'))
 
+//Show actual year
+app.use((req,res,next)=>{
+    const date=new Date()
+    //locals are internals var of nodeJS
+    //actualYear can be used on any file of this app
+    res.locals.actualYear= date.getFullYear()
+    return next()
+})
+
 //load routes
 
 app.use('/',routes())
