@@ -13,5 +13,11 @@ module.exports = function(){
         })
     })
 
+    router.get('/travels',(req,res)=>{
+        res.render('travels',{
+            page:"Cooming Soon"
+        })
+    })
+
     return router
 }
