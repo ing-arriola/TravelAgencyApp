@@ -5,6 +5,12 @@ const routes = require("./routes")
 const paths=require('path')
 const configs=require('./config')
 
+const db = require('./config/database')
+
+db.authenticate()
+    .then(()=>console.log('Db connected'))
+    .catch(error=>console.error(error))
+
 //SetUp Express
 
 const app = express()
