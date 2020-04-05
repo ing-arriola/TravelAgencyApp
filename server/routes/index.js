@@ -2,6 +2,8 @@ const express = require('express')
 
 const router = express.Router()
 
+const Travel = require('../models/Travels')
+
 module.exports = function(){
     router.get('/',(req,res)=>{
         res.render('index')
@@ -14,9 +16,11 @@ module.exports = function(){
     })
 
     router.get('/travels',(req,res)=>{
-        res.render('travels',{
-            page:"Cooming Soon"
-        })
+        Travel.findAll()
+            .then(travesl => res.render('travels',{
+                page:"Cooming Soon"
+            })
+            .catch(error => console.log(error))
     })
 
     return router

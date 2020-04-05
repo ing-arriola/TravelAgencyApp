@@ -26,6 +26,6 @@ const Travel = db.define('travel',{
     availables:{
         type:Sequelize.STRING
     }
+})
 
 module.exports = Travel
-})
