@@ -6,3 +6,13 @@ block content
                 img(src=`/img/destinos_${travel.image}_ln.jpg`,class='img-fluid')
             .col-md-7
                 h1 #{travel.tittle}
+                p
+                    i.fas.fa-calendar-alt
+                    |   #{travel.start_date} - #{travel.end_date}
+                p
+                    i.fas.fa-dollar-sign
+                    |   #{travel.price}
+                p
+                    i.fas.fa-users
+                    |   #{travel.availables} Availables
+                p= travel.description
