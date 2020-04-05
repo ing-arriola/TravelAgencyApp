@@ -24,5 +24,13 @@ module.exports = function(){
             .catch(error => console.log(error))
     })
 
+    router.get('/travels/:id',(req,res)=>{
+        Travel.findByPk(req.params.id)
+            .then(travel => res.render('travel',{
+                travel
+            }))
+            .catch(error => console.log(error))
+    })
+
     return router
 }
