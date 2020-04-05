@@ -17,9 +17,10 @@ module.exports = function(){
 
     router.get('/travels',(req,res)=>{
         Travel.findAll()
-            .then(travesl => res.render('travels',{
-                page:"Cooming Soon"
-            })
+            .then(travels => res.render('travels',{
+                page:"Cooming Soon",
+                travels
+            }))
             .catch(error => console.log(error))
     })
 
