@@ -1,0 +1,21 @@
+extends ../layout/index
+block content
+    main.container.md-5
+        h1.text-center.mb-5 #{page}
+
+        .row
+            .col-md-12
+
+                .row.justify-content-center
+                    .col-md-8
+                        form
+                            .form-group
+                                label(for="name") Name
+                                input(type="text",placeholder="Your name", name="name", id="name",class="form-control")
+                            .form-group
+                                label(for="email") Email
+                                input(type="email",placeholder="Your Email Adress", name="email", id="email",class="form-control")
+                            .form-group
+                                label(for="msg") Your opinion
+                                textarea#msg(name="msg",rows="3",placeholder="Please, let us know your experience here",class="form-control")
+                            input.btn.btn-success.btn-block(type="submit")

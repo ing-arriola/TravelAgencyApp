@@ -15,21 +15,27 @@ module.exports = function(){
         })
     })
 
-    router.get('/travels',(req,res)=>{
+    router.get('/trips',(req,res)=>{
         Travel.findAll()
-            .then(travels => res.render('travels',{
+            .then(travels => res.render('trips',{
                 page:"Cooming Soon",
                 travels
             }))
             .catch(error => console.log(error))
     })
 
-    router.get('/travels/:id',(req,res)=>{
+    router.get('/trips/:id',(req,res)=>{
         Travel.findByPk(req.params.id)
             .then(travel => res.render('travel',{
                 travel
             }))
             .catch(error => console.log(error))
+    })
+
+    router.get('/opinions',(req,res)=>{
+        res.render('opinions',{
+            page:"Opinions"
+        })
     })
 
     return router
