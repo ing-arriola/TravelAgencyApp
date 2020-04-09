@@ -39,7 +39,7 @@ module.exports = function(){
     })
 
     router.post('/opinions',(req,res)=>{
-        let {name,email,message} = req.body
+        let {name,email,msg} = req.body
         let errors = []
         //Validation
         if(!name){
@@ -52,7 +52,7 @@ module.exports = function(){
                 {'message':'Add your E-mail'}
             )
         }
-        if(!message){
+        if(!msg){
             errors.push(
                 {'message':'Please add your Opionion'}
             )
@@ -60,6 +60,12 @@ module.exports = function(){
         //Look for errors
         if(errors.length){
             //Show the page with errors
+            res.render('opinions',{
+                errors,
+                name,
+                email,
+                msg
+            })
         }else{
             //store the data on DB
         }

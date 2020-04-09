@@ -11,11 +11,11 @@ block content
                         form(action='/opinions',method='POST')
                             .form-group
                                 label(for="name") Name
-                                input(type="text",placeholder="Your name", name="name", id="name",class="form-control")
+                                input(type="text",placeholder="Your name", name="name", id="name",class="form-control",value=name)
                             .form-group
                                 label(for="email") Email
-                                input(type="email",placeholder="Your Email Adress", name="email", id="email",class="form-control")
+                                input(type="email",placeholder="Your Email Adress", name="email", id="email",class="form-control",value=email)
                             .form-group
                                 label(for="msg") Your opinion
-                                textarea#msg(name="msg",rows="3",placeholder="Please, let us know your experience here",class="form-control")
+                                textarea#msg(name="msg",rows="3",placeholder="Please, let us know your experience here",class="form-control")=msg
                             input.btn.btn-success.btn-block(type="submit")
