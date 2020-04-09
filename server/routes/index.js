@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 const Travel = require('../models/Travels')
+const Opinion = require('../models/Opinions')
 
 module.exports = function(){
     router.get('/',(req,res)=>{
@@ -39,7 +40,7 @@ module.exports = function(){
     })
 
     router.post('/opinions',(req,res)=>{
-        let {name,email,msg} = req.body
+        let {name,email,message} = req.body
         let errors = []
         //Validation
         if(!name){
@@ -52,9 +53,9 @@ module.exports = function(){
                 {'message':'Add your E-mail'}
             )
         }
-        if(!msg){
+        if(!message){
             errors.push(
-                {'message':'Please add your Opionion'}
+                {'message':'Please add your Opinion'}
             )
         }
         //Look for errors
@@ -64,10 +65,17 @@ module.exports = function(){
                 errors,
                 name,
                 email,
-                msg
+                message
             })
         }else{
             //store the data on DB
+            Opinion.create({
+                name,
+                email,
+                message
+            })
+            .then(opinion => res.redirect('/opinions'))
+            .catch(error => console.log(error))
         }
     })
 
