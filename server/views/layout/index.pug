@@ -9,7 +9,8 @@ html(lang="en")
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css')
         link(rel="stylesheet", href="/css/style.css")
         title #{page} | #{title}
-    body
+    body(class=clase)
         include includes/header
+        block slider
         block content
         include includes/footer

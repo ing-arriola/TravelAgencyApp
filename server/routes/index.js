@@ -7,7 +7,9 @@ const Opinion = require('../models/Opinions')
 
 module.exports = function(){
     router.get('/',(req,res)=>{
-        res.render('index')
+        res.render('index',{
+            clase:'home'
+        })
     })
     
     router.get('/company',(req,res)=>{
