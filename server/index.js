@@ -1,8 +1,10 @@
 //import express
 
 const express=require('express')
-const routes = require("./routes")
 const paths=require('path')
+const bodyParser=require('body-parser')
+const routes = require("./routes")
+
 const configs=require('./config')
 
 
@@ -42,6 +44,8 @@ app.use((req,res,next)=>{
     res.locals.actualYear= date.getFullYear()
     return next()
 })
+
+app.use(bodyParser.urlencoded({extended:true}))
 
 //load routes
 

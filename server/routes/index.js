@@ -38,5 +38,32 @@ module.exports = function(){
         })
     })
 
+    router.post('/opinions',(req,res)=>{
+        let {name,email,message} = req.body
+        let errors = []
+        //Validation
+        if(!name){
+            errors.push(
+                {'message':'Add your name'}
+            )
+        }
+        if(!email){
+            errors.push(
+                {'message':'Add your E-mail'}
+            )
+        }
+        if(!message){
+            errors.push(
+                {'message':'Please add your Opionion'}
+            )
+        }
+        //Look for errors
+        if(errors.length){
+            //Show the page with errors
+        }else{
+            //store the data on DB
+        }
+    })
+
     return router
 }
