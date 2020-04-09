@@ -1,6 +1,6 @@
 const Sequelize=require('sequelize')
 
-module.exports = new Sequelize('TravelData','unknow','unkonw',{
+module.exports = new Sequelize('TravelData','unknow','unknow',{
     host:'127.0.0.1',
     port:'3306',
     dialect:'mysql',

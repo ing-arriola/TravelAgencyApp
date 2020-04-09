@@ -5,6 +5,18 @@ block content
 
         .row
             .col-md-12
+                blockquote.text-center Our customers opinions
+                .row.testimoniales
+                    each opinion in opinions
+                        .col-md-6.col-lg-4.mb-4
+                            .card
+                                .card-body
+                                    blockquote.blockquote
+                                        p.mb-0
+                                            | #{opinion.message}
+                                        footer.blockquote-footer
+                                            | #{opinion.name}
+            .col-md-12
                 h2.text-center Add an opinion
                     h6
                         if(errors)

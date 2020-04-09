@@ -34,9 +34,14 @@ module.exports = function(){
     })
 
     router.get('/opinions',(req,res)=>{
-        res.render('opinions',{
-            page:"Opinions"
-        })
+        Opinion.findAll()
+            .then(
+                opinions => res.render('opinions',{
+                        page:"Opinions",
+                        opinions
+                    })
+                
+            )
     })
 
     router.post('/opinions',(req,res)=>{
