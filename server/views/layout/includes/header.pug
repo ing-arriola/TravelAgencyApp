@@ -7,6 +7,6 @@ header
                         img(src="/img/logo.svg", alt="Logo agencia",class="img-fluid")
                 .col-6.col-md-8
                     nav.nav.justify-content-center.justify-content-md-end
-                        a(href="/company", class="nav-link") Company
-                        a(href="/Trips", class="nav-link") Trips
-                        a(href="/Opinions", class="nav-link") Opinions
+                        a.nav-link(href="/company", class=(ruta === '/company' ? 'active' : '')) Company
+                        a.nav-link(href="/Trips", class=(ruta === '/Trips' ? 'active' : '')) Trips
+                        a.nav-link(href="/Opinions", class=(ruta === '/Opinions' ? 'active' : '')) Opinions

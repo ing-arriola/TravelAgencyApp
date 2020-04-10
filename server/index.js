@@ -42,6 +42,7 @@ app.use((req,res,next)=>{
     //locals are internals var of nodeJS
     //actualYear can be used on any file of this app
     res.locals.actualYear= date.getFullYear()
+    res.locals.ruta=req.path
     return next()
 })
 
