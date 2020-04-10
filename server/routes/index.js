@@ -7,14 +7,29 @@ const Opinion = require('../models/Opinions')
 
 module.exports = function(){
     router.get('/',(req,res)=>{
+        const promises=[] //Array of promises in order to get data from two queries and pass the results to the view
         
-        Travel.findAll({
-            limit: 3
-        })
-            .then(travels => res.render('index',{
+        promises.push(
+            Travel.findAll({
+                limit: 3
+            })
+        )
+
+        promises.push(
+            Opinion.findAll({
+                limit: 3
+            })
+        )
+
+        //Execute the promises
+
+        const result=Promise.all(promises)
+        
+        result.then(result => res.render('index',{
                 page:"Cooming Soon",
                 clase:'home',
-                travels
+                travels: result[0],
+                opinions: result[1]
             }))
             .catch(error => console.log(error))
     })
