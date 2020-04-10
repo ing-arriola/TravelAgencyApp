@@ -7,9 +7,16 @@ const Opinion = require('../models/Opinions')
 
 module.exports = function(){
     router.get('/',(req,res)=>{
-        res.render('index',{
-            clase:'home'
+        
+        Travel.findAll({
+            limit: 3
         })
+            .then(travels => res.render('index',{
+                page:"Cooming Soon",
+                clase:'home',
+                travels
+            }))
+            .catch(error => console.log(error))
     })
     
     router.get('/company',(req,res)=>{
@@ -42,7 +49,6 @@ module.exports = function(){
                         page:"Opinions",
                         opinions
                     })
-                
             )
     })
 
