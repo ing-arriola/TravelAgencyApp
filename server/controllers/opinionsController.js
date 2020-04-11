@@ -40,12 +40,10 @@ exports.insertOpinions = (req,res)=>{
     }
 }
 
-exports.showOpinions = (req,res)=>{
-    Opinion.findAll()
-        .then(
-            opinions => res.render('opinions',{
-                    page:"Opinions",
-                    opinions
-                })
-        )
+exports.showOpinions = async (req,res)=>{
+    const opinions = await Opinion.findAll()
+        res.render('opinions',{
+            page:"Opinions",
+            opinions
+        })
 }
