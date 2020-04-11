@@ -4,7 +4,7 @@ const router = express.Router()
 
 const Travel = require('../models/Travels')
 const Opinion = require('../models/Opinions')
-
+const companyController = require('../controllers/companyController')
 module.exports = function(){
     router.get('/',(req,res)=>{
         const promises=[] //Array of promises in order to get data from two queries and pass the results to the view
@@ -34,11 +34,7 @@ module.exports = function(){
             .catch(error => console.log(error))
     })
     
-    router.get('/company',(req,res)=>{
-        res.render('company',{
-            page:"About us"
-        })
-    })
+    router.get('/company',companyController.infoCompany)
 
     router.get('/trips',(req,res)=>{
         Travel.findAll()
