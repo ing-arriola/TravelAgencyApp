@@ -1,12 +1,11 @@
 //import express
-
 const express=require('express')
 const paths=require('path')
 const bodyParser=require('body-parser')
 const routes = require("./routes")
-
 const configs=require('./config')
 
+require('dotenv').config({path: 'variables.env'})
 
 
 //db.authenticate()
@@ -52,4 +51,9 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use('/',routes())
 
-app.listen(3000)
+//Host & port for the App, these could be dinamically assigned
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || '3000'
+app.listen(port,host, ()=> {
+    console.log('App is up')
+})
